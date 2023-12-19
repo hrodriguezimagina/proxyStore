@@ -1,0 +1,3 @@
+// https://es.javascript.info/proxy
+// https://gomakethings.com/simple-reactive-data-stores-with-vanilla-javascript-and-proxies/
+// https://stackoverflow.com/questions/69978646/how-to-call-an-object-method-by-proxy-in-javascript
