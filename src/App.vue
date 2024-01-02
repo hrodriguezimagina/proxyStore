@@ -1,31 +1,53 @@
-<script setup>
+<template>
+  <div id="testPageId">
+      <p> getName() : {{ store.getName() }}</p>  
+
+  <p> function with params : {{ store.getFullName({lastname: 'rodriguez', separator: '//'}) }}</p>  
+
+    <q-btn  @click="add()">
+      +1 
+    </q-btn>
+    <q-btn  @click="store.reset()">
+      reset 
+    </q-btn>
+    {{ store.state }}
+    {{ store.getCount() }}
+    {{ store.add(2) }}
+
+  </div>
+</template>
+<script>
+
 import store from './store';
 import { reactive, ref , watch} from 'vue'
 
-const msg = ref('Store Test')
 
+export default {
+  props: {},
+  components: { },
+  watch: {},
+  mounted() {
+    this.$nextTick(function () {
+    })
+  },
+  data() {
+    return {
+      loading: false,
+      data: [], 
+      store
+    }
+  },
+  computed: {},
+  methods: {
+    init() {},
+    add(){
+      store.count = store.count + 1      
+      store.user.name = 'siuu'
 
-watch(
-  () => store.user.name,
-  (name) => {
-    msg.value = 'name has changed: ' + name
+    }
   }
-)
-
-
-function add(){
-  store.count = store.count + 1
-  store.user.name = 'juanito'  
 }
 </script>
+<style lang="stylus">
+</style>
 
-<template>
-  <h1>{{ msg }}</h1>  
-  <p> state.count : {{ store.count }}</p>
-  <p> getName() : {{ store.getName() }}</p>  
-  <p> function with params : {{ store.getFullName({lastname: 'rodriguez', separator: '//'}) }}</p>  
-  <button @click="add()">
-    +1 
-  </button>
-  
-</template>
